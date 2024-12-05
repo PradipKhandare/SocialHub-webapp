@@ -1,0 +1,20 @@
+
+<div class="container">
+    <h2>Home</h2>
+    <div class="post-form">
+      <textarea [(ngModel)]="newPost" placeholder="What's your skill?" class="form-control"></textarea>
+      <button (click)="postSkill()" class="btn btn-success">Post</button>
+    </div>
+    <div class="posts">
+      <div *ngFor="let post of posts" class="post">
+        <p>{{ post }}</p>
+        <div class="actions">
+          <button (click)="likePost(post)" class="btn btn-light">Like</button>
+          <button (click)="sharePost(post)" class="btn btn-light">Share</button>
+          <input [(ngModel)]="comment" placeholder="Comment" class="form-control" />
+          <button (click)="commentOnPost(post)" class="btn btn-light">Comment</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
