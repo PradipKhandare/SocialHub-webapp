@@ -1,0 +1,42 @@
+.bottom-navbar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 50px;
+    background-color: #fff;
+    border-top: 1px solid #dbdbdb;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 1000;
+
+    a {
+        text-align: center;
+        color: #262626;
+        text-decoration: none;
+        flex-grow: 1;
+        padding: 10px 0;
+
+        &.active {
+            color: #000;
+        }
+
+        i {
+            font-size: 24px;
+            display: block;
+        }
+
+        span {
+            font-size: 12px;
+        }
+    }
+}
+
+.bi {
+    font-size: 34px;
+}
+
+.bottom-navbar[_ngcontent-ng-c102141313] a[_ngcontent-ng-c102141313] i[_ngcontent-ng-c102141313] {
+    font-size: 34px !important;
+    display: block;
+}

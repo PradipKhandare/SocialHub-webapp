@@ -1,20 +1,78 @@
-
-<div class="container">
-    <h2>Home</h2>
-    <div class="post-form">
-      <textarea [(ngModel)]="newPost" placeholder="What's your skill?" class="form-control"></textarea>
-      <button (click)="postSkill()" class="btn btn-success">Post</button>
+<div class="home-container">
+  <div class="sidebar">
+    <div class="profile">
+      <img src="assets/images/myPic.jpg" alt="User Profile Picture" />
+      <h5>Pradip Khandare</h5>
+      <p class="user-mail">pradip.khandare&#64;neutrinotechlabs.com</p>
+      <div class="stats">
+        <div class="stat">
+          <p class="number-of-posts">65</p>
+          <p class="posts-heading">posts</p>
+        </div>
+        <div class="stat">
+          <p class="number">120</p>
+          <p class="label posts-heading">followers</p>
+        </div>
+        <div class="stat">
+          <p class="number">80</p>
+          <p class="label posts-heading">following</p>
+        </div>
+      </div>
     </div>
-    <div class="posts">
-      <div *ngFor="let post of posts" class="post">
+    <ul class="navigation">
+      <li><i class="bi bi-house-fill"></i> Home</li>
+      <li><i class="bi bi-person-fill"></i> Profile</li>
+      <li><i class="bi bi-star-fill"></i> Favourite</li>
+      <li><i class="bi bi-gear-fill"></i> Settings</li>
+      <li style="color: #c61118;"><i class="bi bi-box-arrow-right"></i> Logout</li>
+    </ul>
+  </div>
+  <div class="main-content">
+    <div class="new-post-container">
+      <textarea [(ngModel)]="newPost" placeholder="What's on your mind?" rows="3"></textarea>
+      <button (click)="postSkill()">Post</button>
+    </div>
+    <div class="videos-container">
+      <div class="video-card">
+        <div class="video">
+          <video width="100%" controls>
+            <source src="assets/shorts/short.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="video-actions">
+          <button><i class="bi bi-hand-thumbs-up"></i> Like</button>
+          <button><i class="bi bi-chat"></i> Comment</button>
+          <button><i class="bi bi-share"></i> Share</button>
+        </div>
+      </div>
+      <div class="video-card">
+        <div class="video">
+          <video width="100%" controls>
+            <source src="assets/shorts/short2.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="video-actions">
+          <button><i class="bi bi-hand-thumbs-up"></i> Like</button>
+          <button><i class="bi bi-chat"></i> Comment</button>
+          <button><i class="bi bi-share"></i> Share</button>
+        </div>
+      </div>
+    </div>
+    <div class="posts-container">
+      <div class="post" *ngfor="let post of posts">
         <p>{{ post }}</p>
-        <div class="actions">
-          <button (click)="likePost(post)" class="btn btn-light">Like</button>
-          <button (click)="sharePost(post)" class="btn btn-light">Share</button>
-          <input [(ngModel)]="comment" placeholder="Comment" class="form-control" />
-          <button (click)="commentOnPost(post)" class="btn btn-light">Comment</button>
+        <div class="post-actions">
+          <button (click)="likePost(post)"><i class="bi bi-hand-thumbs-up"></i> Like</button>
+          <button (click)="sharePost(post)"><i class="bi bi-share"></i> Share</button>
+          <button (click)="commentOnPost(post)"><i class="bi bi-chat"></i> Comment</button>
+        </div>
+        <div class="comment-section">
+          <textarea [(ngModel)]="comment" placeholder="Write a comment..." rows="2"></textarea>
+          <button (click)="commentOnPost(post)">Comment</button>
         </div>
       </div>
     </div>
   </div>
-  
+</div>

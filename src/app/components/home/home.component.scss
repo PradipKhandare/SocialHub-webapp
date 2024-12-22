@@ -1,0 +1,197 @@
+.home-container {
+    display: flex;
+    padding: 16px;
+}
+
+.sidebar {
+    width: 21.875rem;
+    padding: 16px;
+    background-color: #f8f9fa;
+    border-right: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.profile {
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+.profile img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 8px;
+}
+
+.profile p {
+    margin: 0;
+    margin-bottom: 4px;
+    font-size: 14px;
+    color: #333;
+}
+
+.stats {
+    width: 100%;
+    text-align: center;
+}
+
+.stat {
+    width: 100px;
+    display: inline-block;
+}
+
+.number-of-posts {
+    font-weight: 700;
+    margin: 0;
+}
+
+.number {
+    font-weight: 700;
+    margin: 0;
+}
+
+.user-mail {
+    font-weight: 200;
+}
+
+.posts-heading {
+    font-weight: 200;
+}
+
+.navigation {
+    list-style: none;
+    padding: 0;
+}
+
+.navigation li {
+    display: flex;
+    align-items: center;
+    padding: 8px 0;
+    cursor: pointer;
+}
+
+.navigation li i {
+    margin-right: 8px;
+}
+
+.main-content {
+    flex: 1;
+    justify-content: center;
+    padding: 16px;
+}
+
+.new-post-container textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.new-post-container button {
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.new-post-container button:hover {
+    background-color: #0056b3;
+}
+
+.videos-container {
+    margin-top: 16px;
+    overflow-y: scroll;
+    height: 854px;
+    width: 480px;
+    background-color: white;
+    padding: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.posts-container .post .comment-section textarea {
+    width: 100%;
+    height: 80%;
+    padding: 8px;
+    margin-bottom: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.video {
+    margin-bottom: 16px;
+}
+
+.video-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+}
+
+.video-actions button {
+    background: none;
+    border: none;
+    color: #007bff;
+    cursor: pointer;
+}
+
+.video-actions button:hover {
+    text-decoration: underline;
+}
+
+.video-actions i {
+    margin-right: 4px;
+}
+
+.posts-container .post {
+    background-color: white;
+    padding: 16px;
+    margin-bottom: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.posts-container .post p {
+    margin: 0 0 8px;
+}
+
+.posts-container .post .post-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.posts-container .post .post-actions button {
+    background: none;
+    border: none;
+    color: #007bff;
+    cursor: pointer;
+}
+
+.posts-container .post .post-actions button:hover {
+    text-decoration: underline;
+}
+
+.posts-container .post .post-actions i {
+    margin-right: 4px;
+}
+
+
+
+.posts-container .post .comment-section button {
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.posts-container .post .comment-section button:hover {
+    background-color: #0056b3;
+}

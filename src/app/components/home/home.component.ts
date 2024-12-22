@@ -6,7 +6,7 @@ import { LoadingComponent } from "../loading/loading.component";
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [FormsModule, LoadingComponent],
+  imports: [FormsModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })

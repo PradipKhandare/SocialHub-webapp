@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { AppRoutingRoutingModule } from './modules/app-routing/app-routing-routing.module';
+import { BottomNavbarComponent } from "./shared/bottom-navbar/bottom-navbar.component";
+import { TopNavbarComponent } from "./shared/top-navbar/top-navbar.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, AppRoutingRoutingModule],
+  imports: [RouterOutlet, AppRoutingRoutingModule, BottomNavbarComponent, TopNavbarComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
