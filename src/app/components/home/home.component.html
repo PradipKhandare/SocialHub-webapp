@@ -28,40 +28,59 @@
     </ul>
   </div>
   <div class="main-content">
+    <div class="community-buttons">
+      <button class="community-btn">Join Neutrance Community</button>
+      <button class="community-btn">Join Neutrino Artistry</button>
+      <button class="community-btn">Join Neutrino Sketch Spectrum</button>
+      <button class="community-btn">Join Neutrino Harmonic Horizon</button>
+      <button class="community-btn">Join Neutrino Dance Dynamics</button>
+    </div>
     <div class="new-post-container">
       <textarea [(ngModel)]="newPost" placeholder="What's on your mind?" rows="3"></textarea>
-      <button (click)="postSkill()">Post</button>
+      <div>
+        <button (click)="postSkill()">Post</button>
+        <input class="post-file" type="file" accept="video/*" (change)="onFileSelected($event, 'video')" />
+      </div>
+
     </div>
     <div class="videos-container">
-      <div class="video-card">
-        <div class="video">
-          <video width="100%" controls>
-            <source src="assets/shorts/short.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        </div>
-        <div class="video-actions">
-          <button><i class="bi bi-hand-thumbs-up"></i> Like</button>
-          <button><i class="bi bi-chat"></i> Comment</button>
-          <button><i class="bi bi-share"></i> Share</button>
+      <div class="video-item">
+        <video width="100%" controls>
+          <source src="assets/shorts/short.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        <div class="video-info">
+          <h6>Neutrino Octomber Born Celebration</h6>
+          <p>Description of the video goes here. It provides a brief overview of the video's content.</p>
+          <p><strong>Uploaded by:</strong>Nikhil Jawalkar</p>
+          <p><strong>Date:</strong> 2024-12-24</p>
+          <div class="video-actions">
+            <button><i class="bi bi-hand-thumbs-up"></i> Like</button>
+            <button><i class="bi bi-chat"></i> Comment</button>
+            <button><i class="bi bi-share"></i> Share</button>
+          </div>
         </div>
       </div>
-      <div class="video-card">
-        <div class="video">
-          <video width="100%" controls>
-            <source src="assets/shorts/short2.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        </div>
-        <div class="video-actions">
-          <button><i class="bi bi-hand-thumbs-up"></i> Like</button>
-          <button><i class="bi bi-chat"></i> Comment</button>
-          <button><i class="bi bi-share"></i> Share</button>
+      <div class="video-item">
+        <video width="100%" controls>
+          <source src="assets/shorts/short2.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        <div class="video-info">
+          <h6>Neutrino September Born Celebration</h6>
+          <p>Description of the video goes here. It provides a brief overview of the video's content.</p>
+          <p><strong>Uploaded by:</strong>Pradip Khandare</p>
+          <p><strong>Date:</strong> 2024-12-24</p>
+          <div class="video-actions">
+            <button><i class="bi bi-hand-thumbs-up"></i> Like</button>
+            <button><i class="bi bi-chat"></i> Comment</button>
+            <button><i class="bi bi-share"></i> Share</button>
+          </div>
         </div>
       </div>
     </div>
     <div class="posts-container">
-      <div class="post" *ngfor="let post of posts">
+      <div class="post" *ngFor="let post of posts">
         <p>{{ post }}</p>
         <div class="post-actions">
           <button (click)="likePost(post)"><i class="bi bi-hand-thumbs-up"></i> Like</button>
