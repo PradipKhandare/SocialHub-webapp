@@ -7,6 +7,7 @@ import { ProfileComponent } from '../../components/profile/profile.component';
 import { AddPostComponent } from '../../components/add-post/add-post.component';
 import { RandomEmployeesReelsComponent } from '../../components/random-employees-reels/random-employees-reels.component';
 
+
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
@@ -14,11 +15,15 @@ const routes: Routes = [
   { path: 'profile', component: ProfileComponent },
   { path: 'add-post', component: AddPostComponent },
   { path: 'random-reels', component: RandomEmployeesReelsComponent },
-  { path: '', redirectTo: '/home', pathMatch: 'full' }
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: '**', redirectTo: '/login' }, // Redirect unknown routes to login
+
+ 
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  
 })
 export class AppRoutingRoutingModule { }

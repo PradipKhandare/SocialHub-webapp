@@ -1,4 +1,6 @@
-import { Component } from '@angular/core'; import { Router } from '@angular/router'; import { AuthService } from '../../services/auth.service';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -6,21 +8,26 @@ import { FormsModule } from '@angular/forms';
   standalone: true,
   imports: [FormsModule],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.scss'
+  styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
   username: string = '';
   password: string = '';
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService, private router: Router) {}
   onLogin(): void {
-    this.authService.login(this.username, this.password).subscribe(success => {
-      if (success) {
-        this.router.navigate(['/home']);
-      } else {
-        alert('Invalid credentials');
-      }
-    });
+    this.authService
+      .login(this.username, this.password)
+      .subscribe((success) => {
+        if (success) {
+          this.router.navigate(['/home']);
+        } else {
+          alert('Invalid credentials');
+        }
+      });
   }
 
+  onCreateNew(): void {
+    this.router.navigate(['/signup']);
+  }
 }

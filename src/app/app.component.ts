@@ -3,6 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import { AppRoutingRoutingModule } from './modules/app-routing/app-routing-routing.module';
 import { BottomNavbarComponent } from "./shared/bottom-navbar/bottom-navbar.component";
 import { TopNavbarComponent } from "./shared/top-navbar/top-navbar.component";
+import { LoginComponent } from './components/login/login.component';
 
 @Component({
   selector: 'app-root',

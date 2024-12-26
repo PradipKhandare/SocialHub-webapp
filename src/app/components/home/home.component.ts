@@ -1,17 +1,17 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
-import { LoadingComponent } from "../loading/loading.component";
+import { LoadingComponent } from '../loading/loading.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, CommonModule],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.scss'
+  styleUrl: './home.component.scss',
 })
 export class HomeComponent {
-
   newPost: string = '';
   posts: string[] = [];
   comment: string = '';
@@ -19,27 +19,23 @@ export class HomeComponent {
   selectedImage: File | null = null;
   selectedVideo: File | null = null;
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService) {}
 
   postSkill(): void {
-    if (
-      this.newPost.trim()) {
-      this.posts.unshift(this.newPost.trim()
-      ); this.newPost = '';
+    if (this.newPost.trim()) {
+      this.posts.unshift(this.newPost.trim());
+      this.newPost = '';
     }
   }
 
-  likePost(post: string): void { }
+  likePost(post: string): void {}
 
-  sharePost(post: string): void { }
+  sharePost(post: string): void {}
 
   commentOnPost(post: string): void {
     console.log(`Comment on ${post}: ${this.comment}`);
     this.comment = '';
   }
-
-
-
 
   onFileSelected(event: Event, fileType: string): void {
     const input = event.target as HTMLInputElement;
@@ -52,7 +48,4 @@ export class HomeComponent {
       }
     }
   }
-
-
-
 }
