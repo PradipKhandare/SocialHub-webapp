@@ -8,24 +8,26 @@ import { FormsModule } from '@angular/forms';
   standalone: true,
   imports: [FormsModule],
   templateUrl: './signup.component.html',
-  styleUrl: './signup.component.scss'
+  styleUrl: './signup.component.scss',
 })
 export class SignupComponent {
-
   username: string = '';
   password: string = '';
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService, private router: Router) {}
 
-  onSignup(): void {
-    this.authService.signup(this.username, this.password).subscribe(success => {
-      if (success) {
-        this.router.navigate(['/login']);
-      } else {
-        alert('Signup failed');
-      }
-    }
-    );
+ onSignup() : void {
+    this.authService
+      .signup(this.username, this.password)
+      .subscribe((success) => {
+        if (success) {
+          this.router.navigate(['/login']);
+        } else {
+          alert('Signup failed');
+        }
+      });
   }
+  onReset(): void {
 
+  }
 }

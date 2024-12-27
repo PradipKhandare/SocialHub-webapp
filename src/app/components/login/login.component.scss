@@ -20,3 +20,14 @@
     border-bottom-right-radius: 0.3rem;
   }
 }
+.btn-outline-light {
+    border: 2px solid white;  /* Optional: Makes the border a bit thicker */
+    color: white;              /* Text color */
+    background-color: transparent;
+  }
+  
+  .btn-outline-light:hover {
+    background-color: white;  /* Change background on hover */
+    color:grey;            /* Change text color on hover */
+  }
+  
