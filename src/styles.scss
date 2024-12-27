@@ -31,9 +31,13 @@ $Neutrino-TalentBox-theme: mat.define-light-theme((color: (primary: $Neutrino-Ta
 
 /* You can add global styles to this file, and also import other style files */
 
-html,
-body {
-  height: 100%;
+body,
+html {
+  margin: 0;
+  padding: 0;
+  width: 100% !important;
+  height: 100% !important;
+  overflow-x: hidden;
 }
 
 body {

@@ -1,10 +1,21 @@
+body,
+html {
+    margin: 0;
+    padding: 0;
+    width: 100% !important;
+    height: 100% !important;
+    overflow-x: hidden;
+}
+
+
 .home-container {
     display: flex;
-    padding: 16px;
+    padding: 0px;
 }
 
 .sidebar {
     width: 21.875rem;
+    margin-top: 69px;
     padding: 16px;
     background-color: #f8f9fa;
     border-right: 1px solid #ddd;
@@ -89,6 +100,8 @@
 
 .community-btn {
     padding: 8px 16px;
+    margin-left: 5px;
+    margin-top: 60px;
     background-color: #007bff;
     color: white;
     border: none;
@@ -102,7 +115,7 @@
 
 .new-post-container {
     background-color: white;
-    padding: 16px;
+    padding: 9px;
     border: 1px solid #ddd;
     border-radius: 4px;
     margin-bottom: 16px;
@@ -258,4 +271,74 @@
 
 .post-file {
     margin-left: 20px;
+}
+
+.content-section {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 16px;
+
+}
+
+.top-users-container {
+    height: 400px;
+    margin-top: 18px;
+    width: 30%;
+    background-color: white;
+    padding: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 16px;
+}
+
+.top-users-container h3 {
+    margin-top: 0;
+}
+
+.top-user {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+// .top-user img {
+//     width: 50px;
+//     height: 50px;
+//     border-radius: 50%;
+//     margin-right: 8px;
+// }
+
+.top-user .user-info {
+    flex: 1;
+}
+
+.top-user {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.top-user img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 16px;
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-info h5 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.user-info p {
+    margin: 4px 0 0;
+    font-size: 14px;
+    color: #666;
 }

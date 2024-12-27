@@ -1,5 +1,5 @@
 .nts-logo {
-    margin: 10px;
+    margin: 5px;
 }
 
 form.form-inline {
@@ -12,9 +12,15 @@ form.form-inline {
 }
 
 .search-field {
-    margin-left: 74rem;
+    margin-left: 42rem;
 }
 
 .navbar-heading {
     font-weight: bold;
+}
+
+img,
+svg {
+    vertical-align: middle;
+    margin-left: 10px;
 }

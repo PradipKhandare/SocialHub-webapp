@@ -41,40 +41,51 @@
         <button (click)="postSkill()">Post</button>
         <input class="post-file" type="file" accept="video/*" (change)="onFileSelected($event, 'video')" />
       </div>
-
     </div>
-    <div class="videos-container">
-      <div class="video-item">
-        <video width="100%" controls>
-          <source src="assets/shorts/short.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-        <div class="video-info">
-          <h6>Neutrino Octomber Born Celebration</h6>
-          <p>Description of the video goes here. It provides a brief overview of the video's content.</p>
-          <p><strong>Uploaded by:</strong>Nikhil Jawalkar</p>
-          <p><strong>Date:</strong> 2024-12-24</p>
-          <div class="video-actions">
-            <button><i class="bi bi-hand-thumbs-up"></i> Like</button>
-            <button><i class="bi bi-chat"></i> Comment</button>
-            <button><i class="bi bi-share"></i> Share</button>
+    <div class="content-section">
+      <div class="videos-container">
+        <div class="video-item">
+          <video width="100%" controls>
+            <source src="assets/shorts/short.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+          <div class="video-info">
+            <h6>Neutrino Octomber Born Celebration</h6>
+            <p>Description of the video goes here. It provides a brief overview of the video's content.</p>
+            <p><strong>Uploaded by:</strong>Nikhil Jawalkar</p>
+            <p><strong>Date:</strong> 2024-12-24</p>
+            <div class="video-actions">
+              <button><i class="bi bi-hand-thumbs-up"></i> Like</button>
+              <button><i class="bi bi-chat"></i> Comment</button>
+              <button><i class="bi bi-share"></i> Share</button>
+            </div>
+          </div>
+        </div>
+        <div class="video-item">
+          <video width="100%" controls>
+            <source src="assets/shorts/short2.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+          <div class="video-info">
+            <h6>Neutrino September Born Celebration</h6>
+            <p>Description of the video goes here. It provides a brief overview of the video's content.</p>
+            <p><strong>Uploaded by:</strong>Pradip Khandare</p>
+            <p><strong>Date:</strong> 2024-12-24</p>
+            <div class="video-actions">
+              <button><i class="bi bi-hand-thumbs-up"></i> Like</button>
+              <button><i class="bi bi-chat"></i> Comment</button>
+              <button><i class="bi bi-share"></i> Share</button>
+            </div>
           </div>
         </div>
       </div>
-      <div class="video-item">
-        <video width="100%" controls>
-          <source src="assets/shorts/short2.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-        <div class="video-info">
-          <h6>Neutrino September Born Celebration</h6>
-          <p>Description of the video goes here. It provides a brief overview of the video's content.</p>
-          <p><strong>Uploaded by:</strong>Pradip Khandare</p>
-          <p><strong>Date:</strong> 2024-12-24</p>
-          <div class="video-actions">
-            <button><i class="bi bi-hand-thumbs-up"></i> Like</button>
-            <button><i class="bi bi-chat"></i> Comment</button>
-            <button><i class="bi bi-share"></i> Share</button>
+      <div class="top-users-container">
+        <h3>Hall of Fame</h3>
+        <div class="top-user" *ngFor="let user of topUsers">
+          <img [src]="user.profilePic" alt="User Profile Picture" />
+          <div class="user-info">
+            <h5>{{ user.name }}</h5>
+            <p>{{ user.followers }} followers</p>
           </div>
         </div>
       </div>
