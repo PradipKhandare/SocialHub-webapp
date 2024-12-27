@@ -1,9 +1,13 @@
 <div class="home-container">
   <div class="sidebar">
     <div class="profile">
-      <img src="assets/images/myPic.jpg" alt="User Profile Picture" />
-      <h5>Pradip Khandare</h5>
+      <img class="profile-picture" (click)="onClickOfProfilePicture()" src="assets/images/myPic.jpg" alt="User Profile Picture" />
+      <h5 class="user-name" (click)="onClickOfName()">Pradip Khandare</h5>
       <p class="user-mail">pradip.khandare&#64;neutrinotechlabs.com</p>
+      <div class="about">
+        <p>I’m well-versed in a range of programming languages, have expertise in app development
+          and Software development.</p>
+      </div>
       <div class="stats">
         <div class="stat">
           <p class="number-of-posts">65</p>
@@ -21,7 +25,7 @@
     </div>
     <ul class="navigation">
       <li><i class="bi bi-house-fill"></i> Home</li>
-      <li><i class="bi bi-person-fill"></i> Profile</li>
+      <li (click)="onProfileClick()"><i class="bi bi-person-fill"></i> Profile</li>
       <li><i class="bi bi-star-fill"></i> Favourite</li>
       <li><i class="bi bi-gear-fill"></i> Settings</li>
       <li style="color: #c61118;"><i class="bi bi-box-arrow-right"></i> Logout</li>
@@ -80,7 +84,7 @@
         </div>
       </div>
       <div class="top-users-container">
-        <h3>Prime Performers <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></h3>
+        <h3>Shining Stars<i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></h3>
         <div class="top-user" *ngFor="let user of topUsers">
           <img [src]="user.profilePic" alt="User Profile Picture" />
           <div class="user-info">

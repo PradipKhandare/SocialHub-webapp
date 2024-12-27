@@ -17,13 +17,11 @@ const routes: Routes = [
   { path: 'random-reels', component: RandomEmployeesReelsComponent },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: '**', redirectTo: '/login' }, // Redirect unknown routes to login
-
- 
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
-  
+
 })
 export class AppRoutingRoutingModule { }

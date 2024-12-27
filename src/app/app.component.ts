@@ -24,16 +24,16 @@ export class AppComponent {
   title = 'Neutrino-TalentBox';
   showNavbar: boolean = true;
 
-  // constructor(private router: Router) {
-  //   // Check the initial route
-  //   const noNavbarRoutes = ['/login', '/signup'];
-  //   this.showNavbar = !noNavbarRoutes.includes(this.router.url);
+  constructor(private router: Router) {
+    // Check the initial route
+    const noNavbarRoutes = ['/login', '/signup'];
+    this.showNavbar = !noNavbarRoutes.includes(this.router.url);
 
-  //   // Subscribe to future route changes
-  //   this.router.events.subscribe((event) => {
-  //     if (event instanceof NavigationEnd) {
-  //       this.showNavbar = !noNavbarRoutes.includes(event.url);
-  //     }
-  //   });
-  // }
+    // Subscribe to future route changes
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        this.showNavbar = !noNavbarRoutes.includes(event.url);
+      }
+    });
+  }
 }

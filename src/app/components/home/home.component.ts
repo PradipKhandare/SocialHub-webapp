@@ -4,6 +4,7 @@ import { AuthService } from '../../services/auth.service';
 import { LoadingComponent } from "../loading/loading.component";
 import { CommonModule } from '@angular/common';
 import { TopNavbarComponent } from "../../shared/top-navbar/top-navbar.component";
+import { Router } from '@angular/router';
 
 interface User {
   name: string;
@@ -53,14 +54,10 @@ export class HomeComponent {
 
   ];
 
-
-
   selectedImage: File | null = null;
   selectedVideo: File | null = null;
 
-  constructor(private authService: AuthService) {}
-
-
+  constructor(private authService: AuthService, private router: Router) { }
   ngOnInit() {
 
   }
@@ -72,9 +69,9 @@ export class HomeComponent {
     }
   }
 
-  likePost(post: string): void {}
+  likePost(post: string): void { }
 
-  sharePost(post: string): void {}
+  sharePost(post: string): void { }
 
   commentOnPost(post: string): void {
     console.log(`Comment on ${post}: ${this.comment}`);
@@ -91,5 +88,18 @@ export class HomeComponent {
         this.selectedVideo = file;
       }
     }
+  }
+
+
+  onProfileClick() {
+    this.router.navigate(['/profile']);
+  }
+
+  onClickOfName() {
+    this.router.navigate(['/profile']);
+  }
+
+  onClickOfProfilePicture() {
+    this.router.navigate(['/profile']);
   }
 }
