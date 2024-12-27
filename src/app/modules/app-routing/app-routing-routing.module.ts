@@ -6,6 +6,8 @@ import { SignupComponent } from '../../components/signup/signup.component';
 import { ProfileComponent } from '../../components/profile/profile.component';
 import { AddPostComponent } from '../../components/add-post/add-post.component';
 import { RandomEmployeesReelsComponent } from '../../components/random-employees-reels/random-employees-reels.component';
+import { ForgetPasswordComponent } from '../../components/forget-password/forget-password.component';
+import { FavouriteComponent } from '../../components/favourite/favourite.component';
 
 
 const routes: Routes = [
@@ -13,6 +15,8 @@ const routes: Routes = [
   { path: 'signup', component: SignupComponent },
   { path: 'home', component: HomeComponent },
   { path: 'profile', component: ProfileComponent },
+  {path:'favourite',component:FavouriteComponent},
+  {path:'forget-password',component:ForgetPasswordComponent},
   { path: 'add-post', component: AddPostComponent },
   { path: 'random-reels', component: RandomEmployeesReelsComponent },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
