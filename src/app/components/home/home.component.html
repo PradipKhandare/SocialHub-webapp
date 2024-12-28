@@ -1,4 +1,4 @@
-<div class="home-container">
+<div class="home-container" style="overflow-y: hidden;">
   <div class="sidebar">
     <div class="profile">
       <img class="profile-picture" (click)="onClickOfProfilePicture()" src="assets/images/myPic.jpg"
@@ -49,27 +49,23 @@
     <div class="content-section">
       <div class="videos-container">
         <div class="video-item">
-          <video width="100%" controls>
-            <source src="assets/shorts/short.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
           <div class="video-info">
             <h6>Neutrino Octomber Born Celebration</h6>
             <p>Description of the video goes here. It provides a brief overview of the video's content.</p>
             <p><strong>Uploaded by:</strong>Nikhil Jawalkar</p>
             <p><strong>Date:</strong> 2024-12-24</p>
-            <div class="video-actions">
-              <button><i class="bi bi-hand-thumbs-up"></i> Like</button>
-              <button><i class="bi bi-chat"></i> Comment</button>
-              <button><i class="bi bi-share"></i> Share</button>
-            </div>
+          </div>
+          <video class="video-actual" width="100%" controls>
+            <source src="assets/shorts/short.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+          <div class="video-actions">
+            <button><i class="bi bi-hand-thumbs-up"></i> Like</button>
+            <button><i class="bi bi-chat"></i> Comment</button>
+            <button><i class="bi bi-share"></i> Share</button>
           </div>
         </div>
         <div class="video-item">
-          <video width="100%" controls>
-            <source src="assets/shorts/short2.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
           <div class="video-info">
             <h6>Neutrino September Born Celebration</h6>
             <p>Description of the video goes here. It provides a brief overview of the video's
@@ -77,11 +73,15 @@
             </p>
             <p><strong>Uploaded by:</strong>Pradip Khandare</p>
             <p><strong>Date:</strong> 2024-12-24</p>
-            <div class="video-actions">
-              <button><i class="bi bi-hand-thumbs-up"></i> Like</button>
-              <button><i class="bi bi-chat"></i> Comment</button>
-              <button><i class="bi bi-share"></i> Share</button>
-            </div>
+          </div>
+          <video width="100%" controls>
+            <source src="assets/shorts/short2.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+          <div class="video-actions">
+            <button><i class="bi bi-hand-thumbs-up"></i> Like</button>
+            <button><i class="bi bi-chat"></i> Comment</button>
+            <button><i class="bi bi-share"></i> Share</button>
           </div>
         </div>
       </div>

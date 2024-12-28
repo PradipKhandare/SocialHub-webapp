@@ -22,7 +22,7 @@ html {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     position: fixed;
     height: 100%;
-    overflow-y: auto;
+    overflow-y: hidden;
 }
 
 .profile {
@@ -158,22 +158,22 @@ html {
 .video-item {
     display: flex;
     flex-direction: column;
-    margin-bottom: 16px;
+    margin-bottom: 3px;
     background-color: white;
-    padding: 16px;
     border: 1px solid #ddd;
     border-radius: 4px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .video-item video {
-    width: 449px;
+    padding-right: 0px;
+    width: 486px;
     height: 400px;
     border-radius: 4px;
 }
 
 .video-info {
-    margin-top: 8px;
+    margin: 8px;
     font-size: 11px;
 }
 
@@ -189,6 +189,7 @@ html {
     display: flex;
     justify-content: space-between;
     margin-top: 8px;
+    margin-right: 8px;
 }
 
 .video-actions button {
@@ -355,4 +356,9 @@ html {
 .profile-picture,
 .user-name {
     cursor: pointer;
+}
+
+.video-actual {
+    margin-left: 0px;
+    margin-right: 0px;
 }
