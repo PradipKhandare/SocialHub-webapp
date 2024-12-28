@@ -1,0 +1,22 @@
+<form>
+  <div class="form-group">
+    <label class="name-label">Name</label>
+    <input class="name-field" type="text" class="form-control" placeholder="Enter Name">
+
+    <label class="name-label">Role</label>
+    <input class="name-field" type="text" class="form-control" placeholder="Enter Your Role">
+
+    <label class="name-label">Skills</label>
+    <input class="skill-field" type="text" class="form-control" placeholder="Enter Your Skills">
+  </div>
+  <div class="row gutters">
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+      <div class="text-right cancel-update-btns">
+        <button (click)="onClickOfCancelButton()" type="button" id="submit" name="submit"
+          class="btn btn-secondary cancel-btn">Cancel</button>
+        <button type="button" id="submit" name="submit" class="btn btn-primary update-btn"
+          (click)="onClickOfJoinButton()">Join</button>
+      </div>
+    </div>
+  </div>
+</form>

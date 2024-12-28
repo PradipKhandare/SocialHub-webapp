@@ -58,9 +58,7 @@ export class HomeComponent {
   selectedVideo: File | null = null;
 
   constructor(private authService: AuthService, private router: Router) { }
-  ngOnInit() {
-
-  }
+  ngOnInit() { }
 
   postSkill(): void {
     if (this.newPost.trim()) {
@@ -90,7 +88,6 @@ export class HomeComponent {
     }
   }
 
-
   onProfileClick() {
     this.router.navigate(['/profile']);
   }
@@ -101,5 +98,9 @@ export class HomeComponent {
 
   onClickOfProfilePicture() {
     this.router.navigate(['/profile']);
+  }
+
+  onClickOfNeutranceCommunity() {
+    this.router.navigate(['/neutrance']);
   }
 }

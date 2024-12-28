@@ -30,6 +30,7 @@ export class LoginComponent {
   onCreateNew(): void {
     this.router.navigate(['/signup']);
   }
+  
   onForgetPassword():void{
     this.router.navigate(['/forget-password']);
 
