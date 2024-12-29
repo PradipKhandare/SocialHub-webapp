@@ -6,6 +6,7 @@ import { TopNavbarComponent } from './shared/top-navbar/top-navbar.component';
 import { LoginComponent } from './components/login/login.component';
 import { CommonModule } from '@angular/common';
 import { Router, NavigationEnd } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -13,9 +14,9 @@ import { Router, NavigationEnd } from '@angular/router';
   imports: [
     RouterOutlet,
     AppRoutingRoutingModule,
-    BottomNavbarComponent,
     TopNavbarComponent,
     CommonModule,
+    HttpClientModule
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
