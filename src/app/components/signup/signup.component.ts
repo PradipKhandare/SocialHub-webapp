@@ -6,18 +6,20 @@ import { SignupFormService } from '../../services/signup-form.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { Employee } from '../../models/employee';
 import { HttpClientModule } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-signup',
   standalone: true,
-  imports: [FormsModule, ReactiveFormsModule, HttpClientModule],
+  imports: [FormsModule, ReactiveFormsModule, HttpClientModule, CommonModule],
   providers: [SignupFormService],
   templateUrl: './signup.component.html',
-  styleUrl: './signup.component.scss',
+  styleUrls: ['./signup.component.scss'],
 })
 export class SignupComponent {
   username: string = '';
   password: string = '';
+  errorMessage: string = '';
 
   formData = {
     name: '',
@@ -27,26 +29,23 @@ export class SignupComponent {
     department: ''
   };
 
-  constructor(private authService: AuthService, private router: Router, private signupService: SignupFormService) { }
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private signupService: SignupFormService
+  ) { }
 
-  //onSignup(): void {
-  //   this.authService
-  //     .signup(this.username, this.password)
-  //     .subscribe((success) => {
-  //       if (success) {
-  //         this.router.navigate(['/login']);
-  //       } else {
-  //         alert('Signup failed');
-  //       }
-  //     });
-  // }
-  // onReset(): void {
-
-  // }
-
-  //}
+  validateEmailDomain(email: string): boolean {
+    const domain = email.split('@')[1];
+    return domain === 'neutrinotechlabs.com';
+  }
 
   onSignup(): void {
+    if (!this.validateEmailDomain(this.formData.email)) {
+      this.errorMessage = "Please enter your neutrino's mail";
+      return;
+    }
+
     const requestBody: Employee = {
       name: this.formData.name,
       employeeID: this.formData.employeeID,
@@ -54,6 +53,7 @@ export class SignupComponent {
       email: this.formData.email,
       department: this.formData.department
     };
+
     this.signupService.createEmployee(requestBody).subscribe(
       (response) => {
         console.log('Signup successful:', response);
