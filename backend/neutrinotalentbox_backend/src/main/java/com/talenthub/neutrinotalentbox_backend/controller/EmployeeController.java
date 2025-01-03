@@ -18,4 +18,15 @@ public class EmployeeController {
     public Employee createEmployee(@RequestBody Employee employee) {
         return employeeService.saveEmployee(employee);
     }
+
+    @PostMapping("/sendotp")
+    public String login(@RequestParam String email) {
+        boolean otpSent = employeeService.sendOtpToEmail(email);
+
+        if (otpSent) {
+            return "OTP sent to your email.";
+        } else {
+            return "Email not found.";
+        }
+    }
 }
