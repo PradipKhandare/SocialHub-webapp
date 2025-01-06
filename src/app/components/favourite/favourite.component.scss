@@ -1,0 +1,47 @@
+/* Ensure the container takes full width and height of the browser */
+body,
+html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Container for images and videos to occupy full width and wrap elements */
+.lightbox {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px; /* Space between images and videos */
+  justify-content: flex-start; /* Distribute items evenly across the row */
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+}
+
+/* Styling for each video and image */
+.video-item,
+.image-item {
+  flex: 1 1 calc(25% - 10px); /* Each item (video or image) takes 25% of the width minus the gap */
+  max-width: calc(25% - 10px); /* Ensures no item exceeds 25% width */
+  margin-bottom: 10px; /* Space below items */
+  height: auto; /* Maintain aspect ratio */
+  object-fit: cover; /* For video, maintain aspect ratio; for image, cover the area */
+  border-radius: 10px;
+}
+
+/* Responsive for medium screens (tablets or smaller desktops) */
+@media (max-width: 768px) {
+  .video-item,
+  .image-item {
+    flex: 1 1 calc(50% - 10px); /* 2 items per row */
+  }
+}
+
+/* Responsive for smaller screens (phones and smaller tablets) */
+@media (max-width: 480px) {
+  .video-item,
+  .image-item {
+    flex: 1 1 calc(100% - 10px); /* 1 item per row */
+  }
+}

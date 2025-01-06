@@ -14,7 +14,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     AppRoutingRoutingModule,
     TopNavbarComponent,
     CommonModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
@@ -25,7 +25,7 @@ export class AppComponent {
 
   constructor(private router: Router) {
     // Check the initial route
-    const noNavbarRoutes = ['/login', '/signup'];
+    const noNavbarRoutes = ['/login', '/signup', '/favourite'];
     this.showNavbar = !noNavbarRoutes.includes(this.router.url);
 
     // Subscribe to future route changes

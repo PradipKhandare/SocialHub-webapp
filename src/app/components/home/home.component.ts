@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
-import { LoadingComponent } from "../loading/loading.component";
+import { LoadingComponent } from '../loading/loading.component';
 import { CommonModule } from '@angular/common';
-import { TopNavbarComponent } from "../../shared/top-navbar/top-navbar.component";
+import { TopNavbarComponent } from '../../shared/top-navbar/top-navbar.component';
 import { Router } from '@angular/router';
 import { OtpVerificationService } from '../../services/otp-verification.service';
 import { HttpClientModule } from '@angular/common/http';
@@ -21,7 +21,6 @@ interface User {
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
-
 export class HomeComponent {
   newPost: string = '';
   posts: string[] = [];
@@ -30,41 +29,35 @@ export class HomeComponent {
     {
       name: 'Pradip Khandare',
       followers: 120,
-      profilePic: 'assets/images/myPic.jpg'
+      profilePic: 'assets/images/myPic.jpg',
     },
     {
       name: 'Disha Gujrathi',
       followers: 100,
-      profilePic: 'assets/images/myPic.jpg'
+      profilePic: 'assets/images/myPic.jpg',
     },
     {
       name: 'Shreyash Jadhav',
       followers: 95,
-      profilePic: 'assets/images/myPic.jpg'
+      profilePic: 'assets/images/myPic.jpg',
     },
     {
       name: 'Sulakshana Pawar',
       followers: 97,
-      profilePic: 'assets/images/myPic.jpg'
+      profilePic: 'assets/images/myPic.jpg',
     },
     {
       name: 'Rutuja Tathe',
       followers: 89,
-      profilePic: 'assets/images/myPic.jpg'
-    }
+      profilePic: 'assets/images/myPic.jpg',
+    },
   ];
 
   selectedImage: File | null = null;
   selectedVideo: File | null = null;
 
-  username: string | null = '';
-  errorMessage: string = '';
-
-  constructor(private authService: AuthService, private router: Router, private otpService: OtpVerificationService) { }
-
-  ngOnInit() {
-    this.username = localStorage.getItem('username');
-  }
+  constructor(private authService: AuthService, private router: Router) {}
+  ngOnInit() {}
 
   postSkill(): void {
     if (this.newPost.trim()) {
@@ -73,9 +66,9 @@ export class HomeComponent {
     }
   }
 
-  likePost(post: string): void { }
+  likePost(post: string): void {}
 
-  sharePost(post: string): void { }
+  sharePost(post: string): void {}
 
   commentOnPost(post: string): void {
     console.log(`Comment on ${post}: ${this.comment}`);
@@ -109,22 +102,10 @@ export class HomeComponent {
   onClickOfNeutranceCommunity() {
     this.router.navigate(['/neutrance']);
   }
-
-  onLogout(): void {
-    if (this.username) {
-      this.otpService.logout(this.username).subscribe(
-        (response: string) => {
-          console.log('Logout response:', response);
-          localStorage.removeItem('username');
-          this.router.navigate(['/login']);
-        },
-        (error: any) => {
-          console.error('Logout failed:', error);
-          this.errorMessage = 'Failed to log out. Please try again.';
-        }
-      );
-    } else {
-      this.errorMessage = 'No active session found.';
-    }
+  onFavouriteClick() {
+    this.router.navigate(['/favourite']);
+  }
+  onLogout() {
+    this.router.navigate(['/login']);
   }
 }

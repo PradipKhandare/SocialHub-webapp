@@ -11,7 +11,6 @@ import { FavouriteComponent } from '../../components/favourite/favourite.compone
 import { NeutranceCommunityComponent } from '../../components/neutrance-community/neutrance-community.component';
 import { CommunityJoinScreenComponent } from '../../components/community-join-screen/community-join-screen.component';
 
-
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
@@ -23,13 +22,12 @@ const routes: Routes = [
   { path: 'random-reels', component: RandomEmployeesReelsComponent },
   { path: 'neutrance', component: NeutranceCommunityComponent },
   { path: 'join-community', component: CommunityJoinScreenComponent },
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', redirectTo: '/login' }, // Redirect unknown routes to login
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
-
 })
-export class AppRoutingRoutingModule { }
+export class AppRoutingRoutingModule {}
