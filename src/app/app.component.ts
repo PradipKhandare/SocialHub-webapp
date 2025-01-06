@@ -1,12 +1,10 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { AppRoutingRoutingModule } from './modules/app-routing/app-routing-routing.module';
-import { BottomNavbarComponent } from './shared/bottom-navbar/bottom-navbar.component';
 import { TopNavbarComponent } from './shared/top-navbar/top-navbar.component';
-import { LoginComponent } from './components/login/login.component';
 import { CommonModule } from '@angular/common';
 import { Router, NavigationEnd } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',

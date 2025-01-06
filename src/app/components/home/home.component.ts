@@ -5,6 +5,8 @@ import { LoadingComponent } from "../loading/loading.component";
 import { CommonModule } from '@angular/common';
 import { TopNavbarComponent } from "../../shared/top-navbar/top-navbar.component";
 import { Router } from '@angular/router';
+import { OtpVerificationService } from '../../services/otp-verification.service';
+import { HttpClientModule } from '@angular/common/http';
 
 interface User {
   name: string;
@@ -15,11 +17,10 @@ interface User {
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [FormsModule, CommonModule, TopNavbarComponent],
+  imports: [FormsModule, CommonModule, HttpClientModule],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.scss',
+  styleUrls: ['./home.component.scss'],
 })
-
 
 export class HomeComponent {
   newPost: string = '';
@@ -51,14 +52,19 @@ export class HomeComponent {
       followers: 89,
       profilePic: 'assets/images/myPic.jpg'
     }
-
   ];
 
   selectedImage: File | null = null;
   selectedVideo: File | null = null;
 
-  constructor(private authService: AuthService, private router: Router) { }
-  ngOnInit() { }
+  username: string | null = '';
+  errorMessage: string = '';
+
+  constructor(private authService: AuthService, private router: Router, private otpService: OtpVerificationService) { }
+
+  ngOnInit() {
+    this.username = localStorage.getItem('username');
+  }
 
   postSkill(): void {
     if (this.newPost.trim()) {
@@ -102,5 +108,23 @@ export class HomeComponent {
 
   onClickOfNeutranceCommunity() {
     this.router.navigate(['/neutrance']);
+  }
+
+  onLogout(): void {
+    if (this.username) {
+      this.otpService.logout(this.username).subscribe(
+        (response: string) => {
+          console.log('Logout response:', response);
+          localStorage.removeItem('username');
+          this.router.navigate(['/login']);
+        },
+        (error: any) => {
+          console.error('Logout failed:', error);
+          this.errorMessage = 'Failed to log out. Please try again.';
+        }
+      );
+    } else {
+      this.errorMessage = 'No active session found.';
+    }
   }
 }

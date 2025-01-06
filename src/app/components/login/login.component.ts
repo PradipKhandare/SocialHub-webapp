@@ -4,7 +4,7 @@ import { AuthService } from '../../services/auth.service';
 import { FormsModule } from '@angular/forms';
 import { OtpVerificationService } from '../../services/otp-verification.service';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule, provideHttpClient } from '@angular/common/http';
 import { SignupFormService } from '../../services/signup-form.service';
 
 @Component({
@@ -18,7 +18,9 @@ import { SignupFormService } from '../../services/signup-form.service';
 export class LoginComponent {
   username: string = '';
   password: string = '';
+  otp: string = '';
   errorMessage: string = '';
+  successMessage: string = '';
 
   constructor(private authService: AuthService, private router: Router, private otpService: OtpVerificationService) { }
   onLogin(): void {
@@ -56,4 +58,32 @@ export class LoginComponent {
       this.errorMessage = 'Please use a neutrinotechlabs.com email address.';
     }
   }
+
+  onVerifyOtp(): void {
+    if (this.username && this.otp) {
+      this.otpService.verifyOtp(this.username, this.otp).subscribe(
+        (response: string) => {
+          if (response === 'OTP verified successfully.') {
+            this.successMessage = 'OTP verified successfully. Redirecting to home...';
+            this.errorMessage = '';
+            setTimeout(() => {
+              this.router.navigate(['/home']);
+            }, 3000);
+          } else {
+            this.errorMessage = 'Invalid OTP or email. Please try again.';
+            this.successMessage = '';
+          }
+        },
+        (error) => {
+          console.error('Failed to verify OTP:', error);
+          this.errorMessage = 'Failed to verify OTP. Please enter correct details.';
+          this.successMessage = '';
+        }
+      );
+    } else {
+      this.errorMessage = 'Email and OTP are required.';
+      this.successMessage = '';
+    }
+  }
+
 }
