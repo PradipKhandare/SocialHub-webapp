@@ -87,9 +87,12 @@
             Your browser does not support the video tag.
           </video>
           <div class="video-actions">
-            <button><i class="bi bi-hand-thumbs-up"></i> Like</button>
-            <button><i class="bi bi-chat"></i> Comment</button>
-            <button><i class="bi bi-share"></i> Share</button>
+            <button><i class="bi bi-heart"></i> {{ LikeCount }}</button>
+            <button><i class="bi bi-chat"></i></button>
+            <button><i class="bi bi-cursor"></i></button>
+            <button (click)="savePost()">
+              <i class="bi bi-bookmark"></i>
+            </button>
           </div>
         </div>
         <div class="video-item">
@@ -107,9 +110,17 @@
             Your browser does not support the video tag.
           </video>
           <div class="video-actions">
-            <button><i class="bi bi-hand-thumbs-up"></i> Like</button>
-            <button><i class="bi bi-chat"></i> Comment</button>
-            <button><i class="bi bi-share"></i> Share</button>
+            <button>
+              <i class="bi bi-heart">{{ LikeCount }}</i>
+            </button>
+
+            <button><i class="bi bi-chat"></i></button>
+            <button class="share-btn">
+              <i class="bi bi-cursor"></i>
+            </button>
+            <button (click)="savePost()">
+              <i class="bi bi-bookmark"></i>
+            </button>
           </div>
         </div>
       </div>
@@ -132,11 +143,12 @@
         <p>{{ post }}</p>
         <div class="post-actions">
           <button (click)="likePost(post)">
-            <i class="bi bi-hand-thumbs-up"></i> Like
+            <i class="bi bi-heart"></i> Like
           </button>
-          <button (click)="sharePost(post)">
-            <i class="bi bi-share"></i> Share
+          <button (click)="sharePost(post)" class="share-btn">
+            <i class="bi bi-cursor"></i> Share
           </button>
+
           <button (click)="commentOnPost(post)">
             <i class="bi bi-chat"></i> Comment
           </button>

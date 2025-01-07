@@ -22,6 +22,7 @@ interface User {
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent {
+  LikeCount:number=0;
   newPost: string = '';
   posts: string[] = [];
   comment: string = '';
@@ -66,13 +67,20 @@ export class HomeComponent {
     }
   }
 
-  likePost(post: string): void {}
+  likePost(post: string): void {
+    this.LikeCount++;
+  }
 
-  sharePost(post: string): void {}
+  sharePost(post: string): void {
+    console.log('Post shared');
+  }
 
   commentOnPost(post: string): void {
     console.log(`Comment on ${post}: ${this.comment}`);
     this.comment = '';
+  }
+  savePost(): void {
+    console.log('Post saved');
   }
 
   onFileSelected(event: Event, fileType: string): void {
