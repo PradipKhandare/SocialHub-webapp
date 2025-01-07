@@ -12,6 +12,7 @@ interface User {
   name: string;
   followers: number;
   profilePic: string;
+  isFollowing: boolean;
 }
 
 @Component({
@@ -31,34 +32,39 @@ export class HomeComponent {
       name: 'Pradip Khandare',
       followers: 120,
       profilePic: 'assets/images/myPic.jpg',
+      isFollowing: false
     },
     {
       name: 'Disha Gujrathi',
       followers: 100,
       profilePic: 'assets/images/myPic.jpg',
+      isFollowing: false
     },
     {
       name: 'Shreyash Jadhav',
       followers: 95,
       profilePic: 'assets/images/myPic.jpg',
+      isFollowing: false
     },
     {
       name: 'Sulakshana Pawar',
       followers: 97,
       profilePic: 'assets/images/myPic.jpg',
+      isFollowing: false
     },
     {
       name: 'Rutuja Tathe',
       followers: 89,
       profilePic: 'assets/images/myPic.jpg',
+      isFollowing: false
     },
   ];
 
   selectedImage: File | null = null;
   selectedVideo: File | null = null;
 
-  constructor(private authService: AuthService, private router: Router) {}
-  ngOnInit() {}
+  constructor(private authService: AuthService, private router: Router) { }
+  ngOnInit() { }
 
   postSkill(): void {
     if (this.newPost.trim()) {
@@ -67,6 +73,7 @@ export class HomeComponent {
     }
   }
 
+<<<<<<< Updated upstream
   likePost(post: string): void {
     this.LikeCount++;
   }
@@ -74,6 +81,11 @@ export class HomeComponent {
   sharePost(post: string): void {
     console.log('Post shared');
   }
+=======
+  likePost(post: string): void { }
+
+  sharePost(post: string): void { }
+>>>>>>> Stashed changes
 
   commentOnPost(post: string): void {
     console.log(`Comment on ${post}: ${this.comment}`);
@@ -115,5 +127,9 @@ export class HomeComponent {
   }
   onLogout() {
     this.router.navigate(['/login']);
+  }
+
+  toggleFollow(user: any): void {
+    user.isFollowing = !user.isFollowing;
   }
 }

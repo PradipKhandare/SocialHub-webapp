@@ -24,3 +24,8 @@
     background-color: #f9743d;
     border: none;
 }
+
+.dropdown-menu {
+    z-index: 1050;
+    /* Bootstrap's default z-index for dropdown */
+}

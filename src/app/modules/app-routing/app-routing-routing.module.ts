@@ -23,7 +23,7 @@ const routes: Routes = [
   { path: 'neutrance', component: NeutranceCommunityComponent },
   { path: 'join-community', component: CommunityJoinScreenComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: '**', redirectTo: '/login' }, // Redirect unknown routes to login
+  { path: '**', redirectTo: '/home' }, // Redirect unknown routes to login
 ];
 
 @NgModule({

@@ -62,9 +62,9 @@ export class LoginComponent {
   onVerifyOtp(): void {
     if (this.username && this.otp) {
       this.otpService.verifyOtp(this.username, this.otp).subscribe(
-        (response: string) => {
-          if (response === 'OTP verified successfully.') {
-            this.successMessage = 'OTP verified successfully. Redirecting to home...';
+        (response: any) => {
+          if (response.includes('OTP verified successfully')) {
+            this.successMessage = response.message;
             this.errorMessage = '';
             setTimeout(() => {
               this.router.navigate(['/home']);

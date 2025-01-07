@@ -45,18 +45,32 @@ public class EmployeeServiceImpl implements EmployeeService {
         }
     }
 
-    @Override
-    public boolean verifyOtp(String email, String otp) {
-        if (otpStorage.containsKey(email)) {
-            String storedOtp = otpStorage.get(email);
-            if (storedOtp.equals(otp)) {
-                otpStorage.remove(email);  // Remove OTP after successful verification
-                return true;
-            }
-        }
-        return false;
-    }
+  @Override
+  public Map<String, Object> verifyOtp(String email, String otp) {
+    Map<String, Object> response = new HashMap<>();
 
+    if (otpStorage.containsKey(email)) {
+      String storedOtp = otpStorage.get(email);
+      if (storedOtp.equals(otp)) {
+        otpStorage.remove(email);  // Remove OTP after successful verification
+
+        // Fetch employee data
+        Optional<Employee> employeeOptional = employeeRepository.findByEmail(email);
+        if (employeeOptional.isPresent()) {
+          Employee employee = employeeOptional.get();
+          response.put("message", "OTP verified successfully.");
+          response.put("employee", employee);  // Add employee data to response
+        } else {
+          response.put("message", "Employee not found.");
+        }
+      } else {
+        response.put("message", "Invalid OTP.");
+      }
+    } else {
+      response.put("message", "OTP has expired or is invalid.");
+    }
+    return response;
+  }
 
     private String generateOtp() {
         Random random = new Random();

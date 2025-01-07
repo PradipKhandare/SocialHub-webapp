@@ -28,6 +28,7 @@ export class SignupComponent {
     email: '',
     department: ''
   };
+  
 
   constructor(
     private authService: AuthService,

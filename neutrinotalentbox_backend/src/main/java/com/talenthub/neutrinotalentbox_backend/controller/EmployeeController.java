@@ -32,20 +32,13 @@ public class EmployeeController {
         }
     }
 
-    @PostMapping("/verifyotp")
-    public String verifyOtp(@RequestBody Map<String, String> request) {
-        String email = request.get("email");
-        String otp = request.get("otp");
+  @PostMapping("/verifyotp")
+  public Map<String, Object> verifyOtp(@RequestBody Map<String, String> request) {
+    String email = request.get("email");
+    String otp = request.get("otp");
 
-        boolean isVerified = employeeService.verifyOtp(email, otp);
-
-        if (isVerified) {
-            return "OTP verified successfully.";
-        } else {
-            return "Invalid OTP or email.";
-        }
-    }
-
+    return employeeService.verifyOtp(email, otp);  // Return the response map from the service
+  }
 
     @PostMapping("/logout")
     public String logout(@RequestParam String email) {

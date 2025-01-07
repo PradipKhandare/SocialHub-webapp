@@ -283,9 +283,9 @@ html {
 }
 
 .top-users-container {
-    height: 410px;
+    height: 28.375rem;
     margin-top: 18px;
-    width: 30%;
+    width: 32rem;
     background-color: white;
     padding: 16px;
     border: 1px solid #ddd;
@@ -361,4 +361,8 @@ html {
 .video-actual {
     margin-left: 0px;
     margin-right: 0px;
+}
+
+.top-user-follow-btn {
+    color: #007bff;
 }

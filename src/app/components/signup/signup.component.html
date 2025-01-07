@@ -54,16 +54,19 @@
                   </div>
                 </div>
               </div>
-              <div class="row">
-                <div class="col-12">
-                  <select class="select form-control-lg" [(ngModel)]="formData.department" name="department">
-                    <option value="1">Select Your Department</option>
+              <div>
+                <div class="form-outline">
+                  <label class="form-label" for="department">Department</label>
+                  <select class="form-control form-control-lg" id="department" [(ngModel)]="formData.department"
+                    name="department">
+                    <option value="" disabled selected>Please select Your department</option>
                     <option value="DNA">DNA</option>
                     <option value="App Dev">App Dev</option>
                     <option value="QA">QA</option>
                     <option value="Salesforce">Salesforce</option>
                     <option value="Marketing">Marketing</option>
-                    <option value="DevOps">DevOps</option>
+                    <option value="HR">HR</option>
+                    <option value="Product">Product</option>
                   </select>
                 </div>
               </div>

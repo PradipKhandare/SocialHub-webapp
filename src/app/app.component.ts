@@ -25,7 +25,7 @@ export class AppComponent {
 
   constructor(private router: Router) {
     // Check the initial route
-    const noNavbarRoutes = ['/login', '/signup', '/favourite'];
+    const noNavbarRoutes = ['/login', '/signup'];
     this.showNavbar = !noNavbarRoutes.includes(this.router.url);
 
     // Subscribe to future route changes
