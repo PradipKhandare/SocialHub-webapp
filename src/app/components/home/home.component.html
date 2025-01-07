@@ -1,12 +1,8 @@
 <div class="home-container" style="overflow-y: hidden">
   <div class="sidebar">
     <div class="profile">
-      <img
-        class="profile-picture"
-        (click)="onClickOfProfilePicture()"
-        src="assets/images/myPic.jpg"
-        alt="User Profile Picture"
-      />
+      <img class="profile-picture" (click)="onClickOfProfilePicture()" src="assets/images/myPic.jpg"
+        alt="User Profile Picture" />
       <h5 class="user-name" (click)="onClickOfName()">Pradip Khandare</h5>
       <p class="user-mail">pradip.khandare&#64;neutrinotechlabs.com</p>
       <div class="about">
@@ -74,11 +70,7 @@
           <div class="video-actions">
             <div class="left-actions">
               <button (click)="toggleLike()">
-                <i
-                  [class.bi-heart-fill]="isLiked"
-                  [class.bi-heart]="!isLiked"
-                  class="bi"
-                ></i>
+                <i [class.bi-heart-fill]="isLiked" [class.bi-heart]="!isLiked" class="bi"></i>
               </button>
               <button (click)="toggleComments()">
                 <i class="bi bi-chat"></i>
@@ -94,11 +86,7 @@
 
           <!-- Comment Section -->
           <div *ngIf="showComments" class="comment-section">
-            <textarea
-              [(ngModel)]="newComment"
-              placeholder="Write a comment..."
-              rows="4"
-            ></textarea>
+            <textarea [(ngModel)]="newComment" placeholder="Write a comment..." rows="4"></textarea>
             <button (click)="addComment()">
               <i class="bi bi-send"></i>
             </button>
@@ -128,11 +116,7 @@
           <div class="video-actions">
             <div class="left-actions">
               <button (click)="toggleLike()">
-                <i
-                  [class.bi-heart-fill]="isLiked"
-                  [class.bi-heart]="!isLiked"
-                  class="bi"
-                ></i>
+                <i [class.bi-heart-fill]="isLiked" [class.bi-heart]="!isLiked" class="bi"></i>
               </button>
               <button (click)="toggleComments()">
                 <i class="bi bi-chat"></i>
@@ -148,11 +132,7 @@
 
           <!-- Comment Section -->
           <div *ngIf="showComments" class="comment-section">
-            <textarea
-              [(ngModel)]="newComment"
-              placeholder="Write a comment..."
-              rows="4"
-            ></textarea>
+            <textarea [(ngModel)]="newComment" placeholder="Write a comment..." rows="4"></textarea>
             <button (click)="addComment()">
               <i class="bi bi-send"></i>
             </button>
@@ -175,18 +155,13 @@
         <div class="top-user" *ngFor="let user of topUsers">
           <img [src]="user.profilePic" alt="User Profile Picture" />
           <div class="user-info">
-            <p>
+            <p class="shining-stars-name">
               {{ user.name }}
-              <button
-                type="button"
-                class="btn btn-tertiary top-user-follow-btn"
-                mdbRipple
-                (click)="toggleFollow(user)"
-              >
+              <button type="button" class="btn btn-tertiary top-user-follow-btn" mdbRipple (click)="toggleFollow(user)">
                 {{ user.isFollowing ? "Following" : "Follow" }}
               </button>
             </p>
-            <p>{{ user.followers }} followers</p>
+            <p class="shining-stars-follower">{{ user.followers }} followers</p>
           </div>
         </div>
       </div>
@@ -207,11 +182,7 @@
           </button>
         </div>
         <div class="comment-section">
-          <textarea
-            [(ngModel)]="comment"
-            placeholder="Write a comment..."
-            rows="2"
-          ></textarea>
+          <textarea [(ngModel)]="comment" placeholder="Write a comment..." rows="2"></textarea>
           <button (click)="commentOnPost(post)">Comment</button>
         </div>
       </div>

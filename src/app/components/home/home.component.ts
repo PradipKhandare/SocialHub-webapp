@@ -142,4 +142,30 @@ export class HomeComponent {
       this.newComment = '';  // Reset the comment input field
     }
   }
+
+  videos = [
+    {
+      title: 'Neutrino October Born Celebration',
+      description: 'Description of the video goes here. It provides a brief overview of the video\'s content.',
+      uploader: 'Rutuja Tathe',
+      date: '2024-12-24',
+      src: 'assets/shorts/short.mp4',
+      isLiked: false,
+      showComments: false,
+      newComment: '',
+      comments: []
+    },
+    {
+      title: 'Neutrino September Born Celebration',
+      description: 'Description of the video goes here. It provides a brief overview of the video\'s content.',
+      uploader: 'Pradip Khandare',
+      date: '2024-12-24',
+      src: 'assets/shorts/short2.mp4',
+      isLiked: false,
+      showComments: false,
+      newComment: '',
+      comments: []
+    }
+  ];
+  
 }
