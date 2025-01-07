@@ -23,7 +23,10 @@ interface User {
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent {
-  LikeCount:number=0;
+  showComments = false;  // Track whether the comment section is visible
+  newComment = '';  // Bind the new comment input field
+  comments: string[] = [];  // Store comments
+  isLiked: boolean = false;
   newPost: string = '';
   posts: string[] = [];
   comment: string = '';
@@ -32,39 +35,39 @@ export class HomeComponent {
       name: 'Pradip Khandare',
       followers: 120,
       profilePic: 'assets/images/myPic.jpg',
-      isFollowing: false
+      isFollowing: false,
     },
     {
       name: 'Disha Gujrathi',
       followers: 100,
       profilePic: 'assets/images/myPic.jpg',
-      isFollowing: false
+      isFollowing: false,
     },
     {
       name: 'Shreyash Jadhav',
       followers: 95,
       profilePic: 'assets/images/myPic.jpg',
-      isFollowing: false
+      isFollowing: false,
     },
     {
       name: 'Sulakshana Pawar',
       followers: 97,
       profilePic: 'assets/images/myPic.jpg',
-      isFollowing: false
+      isFollowing: false,
     },
     {
       name: 'Rutuja Tathe',
       followers: 89,
       profilePic: 'assets/images/myPic.jpg',
-      isFollowing: false
+      isFollowing: false,
     },
   ];
 
   selectedImage: File | null = null;
   selectedVideo: File | null = null;
 
-  constructor(private authService: AuthService, private router: Router) { }
-  ngOnInit() { }
+  constructor(private authService: AuthService, private router: Router) {}
+  ngOnInit() {}
 
   postSkill(): void {
     if (this.newPost.trim()) {
@@ -73,9 +76,7 @@ export class HomeComponent {
     }
   }
 
-  likePost(post: string): void {
-    this.LikeCount++;
-  }
+  likePost(post: string): void {}
 
   sharePost(post: string): void {
     console.log('Post shared');
@@ -125,5 +126,20 @@ export class HomeComponent {
 
   toggleFollow(user: any): void {
     user.isFollowing = !user.isFollowing;
+  }
+  toggleLike() {
+    this.isLiked = !this.isLiked;
+  }
+   // Toggle the visibility of the comment section
+   toggleComments() {
+    this.showComments = !this.showComments;
+  }
+
+  // Add a new comment to the comments array
+  addComment() {
+    if (this.newComment.trim()) {
+      this.comments.push(this.newComment.trim());
+      this.newComment = '';  // Reset the comment input field
+    }
   }
 }
