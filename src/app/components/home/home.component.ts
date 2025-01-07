@@ -73,7 +73,6 @@ export class HomeComponent {
     }
   }
 
-<<<<<<< Updated upstream
   likePost(post: string): void {
     this.LikeCount++;
   }
@@ -81,11 +80,6 @@ export class HomeComponent {
   sharePost(post: string): void {
     console.log('Post shared');
   }
-=======
-  likePost(post: string): void { }
-
-  sharePost(post: string): void { }
->>>>>>> Stashed changes
 
   commentOnPost(post: string): void {
     console.log(`Comment on ${post}: ${this.comment}`);
