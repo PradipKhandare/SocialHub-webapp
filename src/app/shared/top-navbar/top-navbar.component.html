@@ -28,8 +28,20 @@
                         class="bi bi-instagram"></i></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#"><i class="bi bi-plus-circle-fill"></i></a>
-            </li>
+                <a class="nav-link" href="#" (click)="triggerFileInput()">
+                  <i class="bi bi-plus-circle-fill"></i>
+                </a>
+                <!-- Hidden file input for uploading files -->
+                <input
+                  type="file"
+                  #fileInput
+                  (change)="onFileSelected($event)"
+                  accept="image/*,video/*"
+                  style="display: none"
+                />
+              </li>
+              
+              
         </ul>
         <form class="form-inline my-2 my-lg-0 ml-auto search-field">
             <input class="form-control mr-sm-2" type="search" placeholder="Search Employee" aria-label="Search">
