@@ -22,6 +22,13 @@ export class LoginComponent {
   errorMessage: string = '';
   successMessage: string = '';
 
+  employeeID: string = '';
+  name: string = '';
+  email: string = '';
+  gender: string = '';
+  department: string = ''
+
+
   constructor(private authService: AuthService, private router: Router, private otpService: OtpVerificationService) { }
   onLogin(): void {
     this.authService
@@ -63,12 +70,33 @@ export class LoginComponent {
     if (this.username && this.otp) {
       this.otpService.verifyOtp(this.username, this.otp).subscribe(
         (response: any) => {
-          if (response.includes('OTP verified successfully')) {
+          // Check if the message is "OTP verified successfully"
+          if (response.message === 'OTP verified successfully.') {
             this.successMessage = response.message;
+            console.log(response);
+
+            // Check if employee data exists and pass it to home route
+            if (response.employee) {
+              console.log('Employee Name:', response.employee.name);
+              this.name = response.employee.name;
+              this.email = response.employee.email;
+              this.gender = response.employee.gender;
+              this.employeeID = response.employee.employeeID;
+
+              // Navigate to '/home' and send employee data as query parameters
+              this.router.navigate(['/home'], {
+                queryParams: {
+                  name: this.name,
+                  email: this.email,
+                  gender: this.gender,
+                  employeeID: this.employeeID
+                }
+              });
+            } else {
+              console.log('Employee data is missing');
+            }
+
             this.errorMessage = '';
-            setTimeout(() => {
-              this.router.navigate(['/home']);
-            }, 3000);
           } else {
             this.errorMessage = 'Invalid OTP or email. Please try again.';
             this.successMessage = '';
@@ -85,5 +113,7 @@ export class LoginComponent {
       this.successMessage = '';
     }
   }
+
+
 
 }

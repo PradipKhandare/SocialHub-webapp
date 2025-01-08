@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Employee, OtpVerificationResponse } from '../models/employee';
 
 @Injectable({
   providedIn: 'root'
@@ -20,14 +21,14 @@ export class OtpVerificationService {
   }
 
 
-  verifyOtp(email: string, otp: string): Observable<string> {
+  verifyOtp(email: string, otp: string): Observable<OtpVerificationResponse> {
     const body = { email, otp };
 
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
     });
 
-    return this.http.post<string>(this.verifyOtpUrl, body, { headers, responseType: 'text' as 'json' });
+    return this.http.post<OtpVerificationResponse>(this.verifyOtpUrl, body, { headers });
   }
 
 

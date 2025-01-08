@@ -4,7 +4,7 @@ import { AuthService } from '../../services/auth.service';
 import { LoadingComponent } from '../loading/loading.component';
 import { CommonModule } from '@angular/common';
 import { TopNavbarComponent } from '../../shared/top-navbar/top-navbar.component';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { OtpVerificationService } from '../../services/otp-verification.service';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -13,6 +13,9 @@ interface User {
   followers: number;
   profilePic: string;
   isFollowing: boolean;
+  designation: string;
+  following: number;
+  posts: number;
 }
 
 @Component({
@@ -30,44 +33,51 @@ export class HomeComponent {
   newPost: string = '';
   posts: string[] = [];
   comment: string = '';
+
+  email: string = '';
+  name: string = '';
+  gender: string = '';
+  department: string = '';
+  employeeId: string = '';
+
+  newItems = [
+    {
+      image: 'assets/images/item1.jpg',
+      title: 'Creative Arts Workshop',
+      subtitle: 'Unleashing Creativity',
+      detail1: '25 Participants',
+      detail2: '4 Hours',
+      detail3: 'Location: Studio 5'
+    },
+
+  ];
+
   topUsers: User[] = [
     {
       name: 'Pradip Khandare',
       followers: 120,
       profilePic: 'assets/images/myPic.jpg',
       isFollowing: false,
-    },
-    {
-      name: 'Disha Gujrathi',
-      followers: 100,
-      profilePic: 'assets/images/myPic.jpg',
-      isFollowing: false,
-    },
-    {
-      name: 'Shreyash Jadhav',
-      followers: 95,
-      profilePic: 'assets/images/myPic.jpg',
-      isFollowing: false,
-    },
-    {
-      name: 'Sulakshana Pawar',
-      followers: 97,
-      profilePic: 'assets/images/myPic.jpg',
-      isFollowing: false,
-    },
-    {
-      name: 'Rutuja Tathe',
-      followers: 89,
-      profilePic: 'assets/images/myPic.jpg',
-      isFollowing: false,
-    },
+      designation: "Application Development",
+      following: 12,
+      posts: 10
+    }
   ];
 
   selectedImage: File | null = null;
   selectedVideo: File | null = null;
 
-  constructor(private authService: AuthService, private router: Router) {}
-  ngOnInit() {}
+  constructor(private authService: AuthService, private router: Router, private route: ActivatedRoute) { }
+  ngOnInit() {
+    this.route.queryParams.subscribe(params => {
+      this.email = params['email'];
+      this.name = params['name'];
+      this.gender = params['gender'];
+      this.employeeId = params['employeeID'];
+    });
+
+    console.log(this.email)
+  }
 
   postSkill(): void {
     if (this.newPost.trim()) {
@@ -76,7 +86,7 @@ export class HomeComponent {
     }
   }
 
-  likePost(post: string): void {}
+  likePost(post: string): void { }
 
   sharePost(post: string): void {
     console.log('Post shared');
@@ -130,8 +140,8 @@ export class HomeComponent {
   toggleLike() {
     this.isLiked = !this.isLiked;
   }
-   // Toggle the visibility of the comment section
-   toggleComments() {
+  // Toggle the visibility of the comment section
+  toggleComments() {
     this.showComments = !this.showComments;
   }
 
@@ -167,5 +177,5 @@ export class HomeComponent {
       comments: []
     }
   ];
-  
+
 }
