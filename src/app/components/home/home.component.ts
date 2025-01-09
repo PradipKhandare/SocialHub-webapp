@@ -26,9 +26,10 @@ interface User {
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent {
-  showComments = false;  // Track whether the comment section is visible
-  newComment = '';  // Bind the new comment input field
-  comments: string[] = [];  // Store comments
+  isSaved: boolean = false;
+  showComments = false; // Track whether the comment section is visible
+  newComment = ''; // Bind the new comment input field
+  comments: string[] = []; // Store comments
   isLiked: boolean = false;
   newPost: string = '';
   posts: string[] = [];
@@ -47,9 +48,8 @@ export class HomeComponent {
       subtitle: 'Unleashing Creativity',
       detail1: '25 Participants',
       detail2: '4 Hours',
-      detail3: 'Location: Studio 5'
+      detail3: 'Location: Studio 5',
     },
-
   ];
 
   topUsers: User[] = [
@@ -58,25 +58,29 @@ export class HomeComponent {
       followers: 120,
       profilePic: 'assets/images/myPic.jpg',
       isFollowing: false,
-      designation: "Application Development",
+      designation: 'Application Development',
       following: 12,
-      posts: 10
-    }
+      posts: 10,
+    },
   ];
 
   selectedImage: File | null = null;
   selectedVideo: File | null = null;
 
-  constructor(private authService: AuthService, private router: Router, private route: ActivatedRoute) { }
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {}
   ngOnInit() {
-    this.route.queryParams.subscribe(params => {
+    this.route.queryParams.subscribe((params) => {
       this.email = params['email'];
       this.name = params['name'];
       this.gender = params['gender'];
       this.employeeId = params['employeeID'];
     });
 
-    console.log(this.email)
+    console.log(this.email);
   }
 
   postSkill(): void {
@@ -86,7 +90,7 @@ export class HomeComponent {
     }
   }
 
-  likePost(post: string): void { }
+  likePost(post: string): void {}
 
   sharePost(post: string): void {
     console.log('Post shared');
@@ -149,33 +153,37 @@ export class HomeComponent {
   addComment() {
     if (this.newComment.trim()) {
       this.comments.push(this.newComment.trim());
-      this.newComment = '';  // Reset the comment input field
+      this.newComment = ''; // Reset the comment input field
     }
+  }
+  toggleSave() {
+    this.isSaved = !this.isSaved;
   }
 
   videos = [
     {
       title: 'Neutrino October Born Celebration',
-      description: 'Description of the video goes here. It provides a brief overview of the video\'s content.',
+      description:
+        "Description of the video goes here. It provides a brief overview of the video's content.",
       uploader: 'Rutuja Tathe',
       date: '2024-12-24',
       src: 'assets/shorts/short.mp4',
       isLiked: false,
       showComments: false,
       newComment: '',
-      comments: []
+      comments: [],
     },
     {
       title: 'Neutrino September Born Celebration',
-      description: 'Description of the video goes here. It provides a brief overview of the video\'s content.',
+      description:
+        "Description of the video goes here. It provides a brief overview of the video's content.",
       uploader: 'Pradip Khandare',
       date: '2024-12-24',
       src: 'assets/shorts/short2.mp4',
       isLiked: false,
       showComments: false,
       newComment: '',
-      comments: []
-    }
+      comments: [],
+    },
   ];
- 
 }

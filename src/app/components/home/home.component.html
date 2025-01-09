@@ -86,8 +86,12 @@
               <button><i class="bi bi-send"></i></button>
             </div>
             <div class="right-actions">
-              <button (click)="savePost()">
-                <i class="bi bi-bookmark"></i>
+              <button (click)="toggleSave()">
+                <i
+                  [class.bi-bookmark-fill]="isSaved"
+                  [class.bi-bookmark]="!isSaved"
+                  class="bi"
+                ></i>
               </button>
             </div>
           </div>
@@ -140,8 +144,12 @@
               <button><i class="bi bi-send"></i></button>
             </div>
             <div class="right-actions">
-              <button (click)="savePost()">
-                <i class="bi bi-bookmark"></i>
+              <button (click)="toggleSave()">
+                <i
+                  [class.bi-bookmark-fill]="isSaved"
+                  [class.bi-bookmark]="!isSaved"
+                  class="bi"
+                ></i>
               </button>
             </div>
           </div>
