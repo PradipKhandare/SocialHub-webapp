@@ -56,7 +56,7 @@ export class HomeComponent {
     {
       name: 'Pradip Khandare',
       followers: 120,
-      profilePic: 'assets/images/myPic.jpg',
+      profilePic: 'assets/images/profileIcon.png',
       isFollowing: false,
       designation: 'Application Development',
       following: 12,

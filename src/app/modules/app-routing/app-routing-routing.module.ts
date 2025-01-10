@@ -22,8 +22,8 @@ const routes: Routes = [
   { path: 'random-reels', component: RandomEmployeesReelsComponent },
   { path: 'neutrance', component: NeutranceCommunityComponent },
   { path: 'join-community', component: CommunityJoinScreenComponent },
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: '**', redirectTo: '/home' }, // Redirect unknown routes to login
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: '**', redirectTo: '/login' }, // Redirect unknown routes to login
 ];
 
 @NgModule({
