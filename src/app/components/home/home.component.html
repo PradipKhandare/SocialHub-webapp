@@ -7,7 +7,7 @@
         src="assets/images/profileIcon.png"
         alt="User Profile Picture"
       />
-      <h5 class="user-name" (click)="onClickOfName()">Pradip Khandare</h5>
+      <h5 class="user-name" (click)="onClickOfName()">Alex Carter</h5>
       <p class="user-mail">{{ this.email }}</p>
       <div class="about">
         <p>
@@ -49,7 +49,9 @@
       <button class="community-btn" (click)="onClickOfNeutranceCommunity()">
         Join Neutrance Community
       </button>
-      <button class="community-btn">Join Neutrino Artistry</button>
+      <button class="community-btn" (click)="onClickOfNeutrinoArtistry()">
+        Join Neutrino Artistry
+      </button>
       <button class="community-btn">Join Neutrino Sketch Spectrum</button>
       <button class="community-btn">Join Neutrino Harmonic Horizon</button>
       <button class="community-btn">Join Neutrino Dance Dynamics</button>
@@ -64,7 +66,7 @@
               Description of the video goes here. It provides a brief overview
               of the video's content.
             </p>
-            <p><strong>Uploaded by:</strong> Rutuja Tathe</p>
+            <p><strong>Uploaded by:</strong> Alex Carter</p>
             <p><strong>Date:</strong> 2024-12-24</p>
           </div>
           <video class="video-actual" width="100%" controls>
@@ -122,7 +124,7 @@
               Description of the video goes here. It provides a brief overview
               of the video's content.
             </p>
-            <p><strong>Uploaded by:</strong>Pradip Khandare</p>
+            <p><strong>Uploaded by:</strong>Alex Carter</p>
             <p><strong>Date:</strong> 2024-12-24</p>
           </div>
           <video width="100%" controls>
@@ -182,7 +184,7 @@
             <i class="bi bi-star-fill"></i>
           </h5>
           <p class="star-message">
-            Congratulations, Pradip! 🎉 Your dancing video has received the
+            Congratulations, Alex Carter! 🎉 Your dancing video has received the
             highest number of likes, making you the Star of the Month at
             Neutrino for January. Keep shining and inspiring us all!
           </p>
@@ -219,8 +221,28 @@
                   </div>
                   <div class="button mt-2 d-flex flex-row align-items-center">
                     <!-- <button class="btn btn-sm btn-outline-primary w-100">Chat</button> -->
-                    <button class="btn btn-sm btn-primary w-100 ml-2">
-                      Follow
+                    <div class="follow-container">
+                      <button
+                        *ngIf="!isLoading"
+                        class="btn btn-sm"
+                        [ngClass]="isFollowing ? '' : 'btn-primary'"
+                        (click)="toggleFollow()"
+                      >
+                        {{ isFollowing ? "Following" : "Follow" }}
+                      </button>
+                    </div>
+                    <button
+                      *ngIf="isLoading"
+                      class="btn btn-sm"
+                      [ngClass]="'btn-primary'"
+                      disabled
+                    >
+                      <span
+                        class="spinner-border spinner-border-sm"
+                        role="status"
+                        aria-hidden="true"
+                      ></span>
+                      Following...
                     </button>
                   </div>
                 </div>
@@ -268,11 +290,24 @@
                       >
                     </li>
                   </ol>
-                  <div class="widget-49-meeting-action">
-                    <a href="#" class="btn btn-sm btn-flash-border-primary"
-                      >Confirm Your Presence</a
+                  <div class="confirmation-section">
+                    <button (click)="confirmPresence()" [disabled]="confirmed">
+                      {{
+                        confirmed ? "You Have Confirmed!" : "Confirm Presence"
+                      }}
+                    </button>
+                    <button
+                      *ngIf="confirmed"
+                      (click)="resetConfirmation()"
+                      class="reset-button"
                     >
+                      Reset Confirmation
+                    </button>
                   </div>
+
+                  <p *ngIf="confirmed" class="confirmation-message">
+                    Thank you! Your presence is confirmed for the event.
+                  </p>
                 </div>
               </div>
             </div>

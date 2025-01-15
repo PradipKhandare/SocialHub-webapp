@@ -839,3 +839,36 @@ html {
 .bi-bookmark-fill:hover {
   transform: scale(1.1);
 }
+
+//for confirmation
+.confirmation-section button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.confirmation-section button:disabled {
+  background-color: #6c757d;
+  cursor: not-allowed;
+}
+
+.confirmation-message {
+  color: green;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+//reset confirmation
+.reset-button {
+  background-color: #ffc107;
+  color: white;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+
+

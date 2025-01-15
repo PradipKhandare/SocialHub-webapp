@@ -34,12 +34,15 @@ export class HomeComponent {
   newPost: string = '';
   posts: string[] = [];
   comment: string = '';
+  isFollowing: boolean = false;
+  isLoading: boolean = false;
 
   email: string = '';
   name: string = '';
   gender: string = '';
   department: string = '';
   employeeId: string = '';
+  confirmed: boolean = false;
 
   newItems = [
     {
@@ -54,7 +57,7 @@ export class HomeComponent {
 
   topUsers: User[] = [
     {
-      name: 'Pradip Khandare',
+      name: ' Alex Carter',
       followers: 120,
       profilePic: 'assets/images/profileIcon.png',
       isFollowing: false,
@@ -138,15 +141,15 @@ export class HomeComponent {
     this.router.navigate(['/login']);
   }
 
-  toggleFollow(user: any): void {
-    user.isFollowing = !user.isFollowing;
-  }
   toggleLike() {
     this.isLiked = !this.isLiked;
   }
   // Toggle the visibility of the comment section
   toggleComments() {
     this.showComments = !this.showComments;
+  }
+  onClickOfNeutrinoArtistry() {
+    this.router.navigate(['/artistry']);
   }
 
   // Add a new comment to the comments array
@@ -160,12 +163,30 @@ export class HomeComponent {
     this.isSaved = !this.isSaved;
   }
 
+  confirmPresence() {
+    this.confirmed = true;
+    console.log('Your presence is confirmed!');
+  }
+  resetConfirmation() {
+    this.confirmed = false;
+    console.log('Confirmation has been reset.');
+  }
+  toggleFollow() {
+    this.isFollowing = !this.isFollowing;
+    this.isLoading = true;
+
+    setTimeout(() => {
+      this.isFollowing = !this.isFollowing;
+      this.isLoading = false;
+    }, 1000);
+  }
+
   videos = [
     {
       title: 'Neutrino October Born Celebration',
       description:
         "Description of the video goes here. It provides a brief overview of the video's content.",
-      uploader: 'Rutuja Tathe',
+      uploader: ' Alex Carter',
       date: '2024-12-24',
       src: 'assets/shorts/short.mp4',
       isLiked: false,
@@ -177,7 +198,7 @@ export class HomeComponent {
       title: 'Neutrino September Born Celebration',
       description:
         "Description of the video goes here. It provides a brief overview of the video's content.",
-      uploader: 'Pradip Khandare',
+      uploader: ' Alex Carter',
       date: '2024-12-24',
       src: 'assets/shorts/short2.mp4',
       isLiked: false,

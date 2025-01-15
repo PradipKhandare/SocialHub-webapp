@@ -10,6 +10,7 @@ import { ForgetPasswordComponent } from '../../components/forget-password/forget
 import { FavouriteComponent } from '../../components/favourite/favourite.component';
 import { NeutranceCommunityComponent } from '../../components/neutrance-community/neutrance-community.component';
 import { CommunityJoinScreenComponent } from '../../components/community-join-screen/community-join-screen.component';
+import { NeutrinoArtistryComponent } from '../../neutrino-artistry/neutrino-artistry.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -22,8 +23,9 @@ const routes: Routes = [
   { path: 'random-reels', component: RandomEmployeesReelsComponent },
   { path: 'neutrance', component: NeutranceCommunityComponent },
   { path: 'join-community', component: CommunityJoinScreenComponent },
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
-  { path: '**', redirectTo: '/login' }, // Redirect unknown routes to login
+  {path:'artistry',component:NeutrinoArtistryComponent},
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: '**', redirectTo: '/home' }, // Redirect unknown routes to login
 ];
 
 @NgModule({
