@@ -1,27 +1,25 @@
-# NeutrinoTalentBox
+# 🚀 NeutrinoTalentBox
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.0.
 
-## Development server
+### 🧠 Talent Dashboard (Smart Overview)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+<img src="https://github.com/user-attachments/assets/02d02e73-218c-4bdb-8a81-0c5ca3241ba2" alt="Talent Dashboard" width="800"/>
 
-## Code scaffolding
+---
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### 🔍 AI-Powered Talent Search
 
-## Build
+<img src="https://github.com/user-attachments/assets/a4aa0414-5931-46a7-af78-32e0c209d174" alt="Talent Search" width="800"/>
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+---
 
-## Running unit tests
+### 📊 Skills & Availability Insights
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+<img src="https://github.com/user-attachments/assets/96004131-8a99-4229-af94-7bd3001c64fe" alt="Insights Dashboard" width="800"/>
 
-## Running end-to-end tests
+---
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### 📁 Detailed Candidate Profile
 
-## Further help
+<img src="https://github.com/user-attachments/assets/75e6ad60-5996-4788-a6ac-0a0f792820e8" alt="Candidate Profile" width="800"/>
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
